@@ -1,0 +1,43 @@
+package activities;
+
+import java.rmi.UnexpectedException;
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class Activity9 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		WebDriverManager.firefoxdriver().setup();
+		
+		WebDriver driver = new FirefoxDriver();
+		
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		
+		driver.get("https://v1.training-support.net/selenium/ajax");
+		
+		System.out.println("Title is : " + driver.getTitle());
+		
+		driver.findElement(By.cssSelector("button.violet")).click();
+		
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.tagName("h1")));
+		
+		System.out.println("Message is : " + driver.findElement(By.tagName("h1")).getText());
+		
+		wait.until(ExpectedConditions.textToBePresentInElementLocated(By.tagName("h3"),"I'm late!"));
+		
+		System.out.println("Message is : " + driver.findElement(By.tagName("h3")).getText());
+		
+		driver.close();
+	}
+
+}
