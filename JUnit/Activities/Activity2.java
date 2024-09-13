@@ -1,9 +1,11 @@
-import org.junit.jupiter.api.Test;
-import activityPrograms.BankAccount;
-import activityPrograms.NotEnoughFundsException;
-import static org.junit.jupiter.api.Assertions.*;
+package Activities;
 
-class ExpectedExceptionTest {
+import org.junit.jupiter.api.Test;
+import Activities.BankAccount;
+import Activities.NotEnoughFundsException;
+import static org.junit.jupiter.api.Assertions.*;
+ 
+public class Activity2 {
 
     @Test
     void notEnoughFunds() {
